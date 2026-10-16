@@ -1,5 +1,3 @@
-// db as in database related stuff.
-// like functions for querying.
 const db = require("../db/queries");
 
 async function getGames(req, res) {
