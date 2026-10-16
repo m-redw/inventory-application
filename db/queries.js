@@ -13,6 +13,11 @@ async function getGames(name) {
   return rows;
 }
 
+async function getGame(id) {
+  const { rows } = await pool.query("SELECT * FROM games WHERE id=$1", [id]);
+  return rows[0];
+}
+
 async function insertGame(name, developer, genre, platforms, rating) {
   await pool.query(
     "INSERT INTO games (name, developer, genre, platforms, rating) VALUES ($1, $2, $3, $4, $5)",
@@ -38,6 +43,7 @@ async function deleteAllgames() {
 module.exports = {
   getAllGames,
   getGames,
+  getGame,
   insertGame,
   updateGame,
   deleteGame,
