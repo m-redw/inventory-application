@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Inventory</title>
+  </head>
+  <body>
+    <% games.forEach((game)=> {%>
+        <p><%= game.name %></p>
+        <p><%= game.developer %></p>
+        <p><%= game.genre %></p>
+        <p><%= game.platforms %></p>
+        <p><%= game.rating %></p>
+        <form action="/update/<%= game.id %>" method="GET">
+            <button>Update game</button>
+        </form>
+        <form action="/delete/<%= game.id %>" method="POST">
+            <button>Delete game</button>
+        </form>
+    <% }) %>
+
+    <form action="/add" method="GET">
+            <button>Add game</button>
+        </form>
+  </body>
+</html>

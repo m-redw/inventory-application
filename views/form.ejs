@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini-Message-App</title>
+  </head>
+  <body>
+    <form method="POST" action="<%=game ? `/update/${game.id}` :'/add'%>">
+      <h1>Add game</h1>
+      <label>
+        Game name:
+        <input type="text" id="name" name="name" value="<%=game.name%>" />
+      </label>
+
+      <label>
+        Developers:
+        <input type="text" id="developer" name="developer" value="<%=game.developer%>" />
+      </label>
+
+      <label>
+        Genre:
+        <input type="text" id="genre" name="genre" value="<%=game.genre%>" />
+      </label>
+
+      <fieldset>
+        <legend>Platforms</legend>
+        <label>
+          Playstation
+          <input type="checkbox" id="playstation" name="platforms" value="Playstation" <%=game && game.platforms.includes('Playstation') ? "checked" : ""%>/>
+        </label>
+        <label>
+          Xbox
+          <input type="checkbox" id="xbox" name="platforms" value="Xbox" <%=game && game.platforms.includes('Xbox') ? "checked" : ""%>/>
+        </label>
+        <label>
+          PC
+          <input type="checkbox" id="pc" name="platforms" value="PC" <%=game && game.platforms.includes('PC') ? "checked" : ""%>/>
+        </label>
+        <label>
+          Nintendo Switch
+          <input type="checkbox" id="nintendoswitch" name="platforms" value="Nintendo Switch" <%=game && game.platforms.includes('Nintendo Switch') ? "checked" : ""%>/>
+        </label>
+      </fieldset>
+
+      <label>
+        Rating:
+        <input type="number" id="rating" name="rating" value="<%=game.rating%>" />
+      </label>
+
+      <button>Submit</button>
+    </form>
+
+  </body>
+</html>
